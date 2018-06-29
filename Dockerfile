@@ -3,11 +3,7 @@ MAINTAINER Martin Hellstrom <martin@hellstrom.it>
 
 RUN \
   apt-get update && \
-  apt-get install --no-install-recommends -y apt-mirror apache2 gnupg2 && \
+  apt-get install --no-install-recommends -y apt-mirror && \
   rm -rf /var/cache/apt/*
 
-EXPOSE 80
-#COPY setup.sh /setup.sh
-#RUN setup.sh
-
-ENTRYPOINT ["apachectl", "-DFOREGROUND"]
+ENTRYPOINT ["apt-mirror"]
