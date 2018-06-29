@@ -3,7 +3,7 @@ MAINTAINER Martin Hellstrom <martin@hellstrom.it>
 
 RUN \
   apt-get update && \
-  apt-get install --no-install-recommends -y apt-mirror && \
+  apt-get install --no-install-recommends -y apt-mirror cron && \
   rm -rf /var/cache/apt/*
 
-ENTRYPOINT ["apt-mirror"]
+ENTRYPOINT ["cron", "-f"]
